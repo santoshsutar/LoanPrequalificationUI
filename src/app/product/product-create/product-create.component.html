@@ -1,0 +1,47 @@
+<h2>Create a Loan Product</h2>
+
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+  vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
+  Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+  commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis
+  tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus,
+  tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+  porttitor, facilisis luctus, metus</p>
+<form [formGroup]="productForm" novalidate #form="ngForm" (ngSubmit)="Save(form)">
+  <div *ngIf="showErrorMessage" class="validation-summary-errors">
+    <span>The creation of the loan application was unsuccessful. Please correct the errors and try again.</span>
+    <ul>
+      <li *ngFor="let rule of brokenRules">
+        {{rule.Rule}} </li>
+    </ul>
+  </div>
+  <fieldset>
+    <legend>Fields</legend>
+    <p>
+      <label for="Name">Name:</label>
+      <input class="form-control" formControlName="Name">
+    </p>
+    <p>
+      <label for="InterestRate">InterestRate:</label>
+      <input class="form-control" formControlName="InterestRate">
+    </p>
+    <p>
+      <label for="MaximumLTV">MaximumLTV:</label>
+      <input class="form-control" formControlName="MaximumLTV">
+    </p>
+    <p>
+      <label for="MaximumLoan">MaximumLoan:</label>
+      <input class="form-control" formControlName="MaximumLoan">
+    </p>
+    <p>
+      <label for="MaximumLoanTerm">MaximumLoanTerm:</label>
+      <input class="form-control" formControlName="MaximumLoanTerm">
+    </p>
+    <p>
+      <input type="submit" value="Create" />
+    </p>
+  </fieldset>
+</form>
+<a routerLink="/Products">
+  Back to Product List
+</a>
