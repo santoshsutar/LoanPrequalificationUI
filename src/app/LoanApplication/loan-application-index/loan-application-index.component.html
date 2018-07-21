@@ -21,7 +21,24 @@
     </th>
   </tr>
 
-  <tr *ngFor="let prod of product  | async">
+  <tr *ngFor="let loan of LoanApplications  | async">
+    <td>
+      <a [routerLink]="['Details',loan.Id]">
+        Details
+      </a>
+    </td>
+    <td>
+      {{loan.Id}}
+    </td>
+    <td>
+      {{loan.LoanAmount }}
+    </td>
+    <td>
+      {{loan.Status}}
+    </td>
+    <td>
+      No Offer Generated
+    </td>
   </tr>
 </table>
 <a routerLink="/Product/Create">

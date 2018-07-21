@@ -42,4 +42,16 @@ describe('LoanApplicationIndexComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get loan applications', () => {
+    expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
+    expect(component.LoanApplications).toBeDefined();
+    component.LoanApplications.subscribe(data => {
+      expect(data[0].Id).toEqual("10");
+      expect(data[0].HasOffer).toEqual(false);
+      expect(data[0].LoanAmount).toEqual(10);
+      expect(data[0].Status).toEqual("Approved");      
+    });
+  });
 });

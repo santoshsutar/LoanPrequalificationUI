@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanApplicationRepositoryService } from '../LoanApplicationRepository/loan-application-repository.service';
+import { LoanApplicationSummaryView } from '../../Models/loan-application-summary-view';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-loan-application-index',
@@ -8,8 +10,10 @@ import { LoanApplicationRepositoryService } from '../LoanApplicationRepository/l
 })
 export class LoanApplicationIndexComponent implements OnInit {
 
-  
-  constructor(private repository: LoanApplicationRepositoryService) { }
+  public LoanApplications: Observable<LoanApplicationSummaryView[]>;
+  constructor(private repository: LoanApplicationRepositoryService) {
+    this.LoanApplications = this.repository.GetLoanApplications();
+  }
 
   ngOnInit() {
   }
